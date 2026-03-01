@@ -3,43 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eid Mubarak Interactive</title>
+    <title>Eid Mubarak 🌙</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="window" id="main-window">
-        <div class="window-header">
-            <span class="dots">● ● ●</span>
-            <span class="title">eid-mubarak.app</span>
-        </div>
-        
-        <div class="content" id="content-area">
-            <div id="phase1">
-                <div class="night-sky" id="sky">
-                    <p>Can you find the Eid moon?</p>
-                    <div id="moon" class="hidden-moon">🌙</div>
-                </div>
-            </div>
+    <div class="stars"></div>
 
-            <div id="phase2" class="hidden">
-                <h2>Eid Preparations</h2>
-                <div class="decoration-zone" id="decorations"></div>
-                <div class="button-group">
-                    <button onclick="addLanterns()">Hang Lanterns</button>
-                    <button onclick="addBanner()">Set Banner</button>
-                    <button onclick="showLetter()">Read Message</button>
-                </div>
+    <div id="phase1" class="phase active">
+        <div class="sky-container">
+            <h2>The sky is waiting...</h2>
+            <p>Can you find the Eid moon?</p>
+            <div id="moon" class="moon-target">🌙</div>
+        </div>
+    </div>
+
+    <div id="phase2" class="phase">
+        <div class="window">
+            <div class="window-header">
+                <span class="dots">● ● ●</span>
+                <span class="title">eid-preparations.app</span>
             </div>
-            
-            <div id="phase3" class="hidden">
-                <div class="letter">
-                    <h3>Eid Mubarak!</h3>
-                    <p id="letter-text"></p>
-                    <button onclick="location.reload()">Restart</button>
-                </div>
+            <div class="window-content">
+                <h2>Prepare for Eid</h2>
+                <div id="decor-status"></div>
+                <button onclick="lightLanterns()">🏮 Light Lanterns</button>
+                <button onclick="nextPhase('phase3')">Continue</button>
             </div>
         </div>
     </div>
+
+    <div id="phase3" class="phase">
+        <div class="window">
+            <div class="window-header"><span class="title">eidi-gift.exe</span></div>
+            <div class="window-content">
+                <h2>Your Eidi Awaits 🎁</h2>
+                <div class="gift-box" onclick="openBox()">🎁</div>
+                <p id="box-instruction">Tap 3 times to open!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="phase4" class="phase">
+        <div class="window letter-window">
+            <div class="window-header"><span class="title">eid_mubarak_letter.txt</span></div>
+            <div class="window-content">
+                <h1>Eid Mubarak 🌙✨</h1>
+                <p class="letter-body">
+                    May this Eid bring peace to your heart.<br><br>
+                    May your home be filled with barakah and Allah accept your prayers.<br><br>
+                    Wishing you a joyful and blessed day.
+                </p>
+                <h3>— Samir 🌙</h3>
+                <button onclick="location.reload()">Restart</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
