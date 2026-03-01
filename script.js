@@ -1,29 +1,40 @@
-/// Phase 1 Logic: Find the moon (Supports Touch & Click)
-const moon = document.getElementById('moon');
-const phase1 = document.getElementById('phase1');
-const phase2 = document.getElementById('phase2');
-
-// Function to trigger the transition
-function revealMoon() {
-    moon.style.opacity = '1';
-    setTimeout(() => {
-        phase1.classList.add('hidden');
-        phase2.classList.remove('hidden');
-    }, 800);
+function nextPhase(phaseId) {
+    document.querySelectorAll('.phase').forEach(p => p.classList.remove('active'));
+    document.getElementById(phaseId).classList.add('active');
 }
 
-// Listen for both Mouse and Finger Taps
-moon.addEventListener('mouseover', revealMoon); // For PC
-moon.addEventListener('click', revealMoon);     // For Mobile Tap
-moon.addEventListener('touchstart', revealMoon); // For faster Mobile response
+// Moon Logic - Works on Touch and Click
+document.getElementById('moon').addEventListener('click', function() {
+    this.style.opacity = '1';
+    setTimeout(() => nextPhase('phase2'), 1000);
+});
 
+// Touchstart for faster mobile response
+document.getElementById('moon').addEventListener('touchstart', function() {
+    this.style.opacity = '1';
+    setTimeout(() => nextPhase('phase2'), 1000);
+});
 
-// Phase 3 Logic: The Letter
-function showLetter() {
-    document.getElementById('phase2').classList.add('hidden');
-    document.getElementById('phase3').classList.remove('hidden');
-    document.getElementById('letter-text').innerText = 
-        "May this Eid bring you and your family endless joy, peace, and prosperity. " +
-        "Thank you for being part of my journey!";
+function lightLanterns() {
+    document.getElementById('decor-status').innerText = "The lanterns are glowing...";
+    for(let i=0; i<8; i++) {
+        let l = document.createElement("div");
+        l.className = "lantern";
+        l.innerText = "🏮";
+        l.style.left = Math.random() * 90 + "%";
+        l.style.animationDuration = (5 + Math.random() * 5) + "s";
+        document.body.appendChild(l);
+    }
 }
 
+let boxClicks = 0;
+function openBox() {
+    boxClicks++;
+    let hint = document.getElementById('box-instruction');
+    if(boxClicks < 3) {
+        hint.innerText = `Tap ${3 - boxClicks} more times!`;
+    } else {
+        hint.innerText = "🎁 OPENING...";
+        setTimeout(() => nextPhase('phase4'), 800);
+    }
+}
