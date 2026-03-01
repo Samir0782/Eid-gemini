@@ -42,10 +42,13 @@ body {
     position: absolute;
     top: 20px;
     right: 30px;
-    font-size: 40px;
-    opacity: 0;
+    font-size: 60px; /* Bigger for easier tapping */
+    opacity: 0.1;    /* Slightly visible so you can find it */
     transition: opacity 0.5s;
+    cursor: pointer;
+    padding: 20px;   /* Larger touch area */
 }
+
 
 .hidden { display: none; }
 
