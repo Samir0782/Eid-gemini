@@ -1,0 +1,65 @@
+body {
+    background-color: #fce4ec; /* Light pink background like the video */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.window {
+    width: 350px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+}
+
+.window-header {
+    background: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #ff80ab;
+}
+
+.content { padding: 20px; min-height: 300px; }
+
+.night-sky {
+    background: #2c3e50;
+    height: 200px;
+    border-radius: 10px;
+    position: relative;
+    color: white;
+    cursor: crosshair;
+}
+
+.hidden-moon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.hidden { display: none; }
+
+button {
+    background: #ff80ab;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover { transform: scale(1.05); }
+
+.lanterns { font-size: 25px; margin-bottom: 10px; }
