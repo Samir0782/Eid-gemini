@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eid Mubarak Interactive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="window" id="main-window">
+        <div class="window-header">
+            <span class="dots">● ● ●</span>
+            <span class="title">eid-mubarak.app</span>
+        </div>
+        
+        <div class="content" id="content-area">
+            <div id="phase1">
+                <div class="night-sky" id="sky">
+                    <p>Can you find the Eid moon?</p>
+                    <div id="moon" class="hidden-moon">🌙</div>
+                </div>
+            </div>
+
+            <div id="phase2" class="hidden">
+                <h2>Eid Preparations</h2>
+                <div class="decoration-zone" id="decorations"></div>
+                <div class="button-group">
+                    <button onclick="addLanterns()">Hang Lanterns</button>
+                    <button onclick="addBanner()">Set Banner</button>
+                    <button onclick="showLetter()">Read Message</button>
+                </div>
+            </div>
+            
+            <div id="phase3" class="hidden">
+                <div class="letter">
+                    <h3>Eid Mubarak!</h3>
+                    <p id="letter-text"></p>
+                    <button onclick="location.reload()">Restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
